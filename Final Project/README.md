@@ -83,7 +83,7 @@ for (var i=0; i<10; i++){
 }
 ```
 
-This part is about water, using a textured plane to set off the water and water components. Adjust the values of the two parts to make the water look more real. TextureLoader is used to load the texture.
+This part is about water, using a textured plane to set off the water and water components. Adjust the values of the two parts to make the water look more real. TextureLoader is used to load the texture. Finally, add the water surface to the scene. Make the pitch big enough to cover the whole scene.
 
 ```javascript
 // ground
