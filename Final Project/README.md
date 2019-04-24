@@ -81,5 +81,63 @@ for (var i=0; i<10; i++){
     });
   });
 }
+```
 
+This part is about water, using a textured plane to set off the water and water components. Adjust the values of the two parts to make the water look more real. TextureLoader is used to load the texture.
+
+```javascript
+// ground
+var groundGeometry = new THREE.PlaneBufferGeometry( 10000, 10000, 10, 10 );
+var groundMaterial = new THREE.MeshBasicMaterial( { color: 0xcccccc } );
+var ground = new THREE.Mesh( groundGeometry, groundMaterial );
+ground.rotation.x = Math.PI * - 0.5;
+scene.add( ground );
+var textureLoader = new THREE.TextureLoader();
+textureLoader.load( 'textures/floors/6.jpg', function ( map ) {
+  map.wrapS = THREE.RepeatWrapping;
+  map.wrapT = THREE.RepeatWrapping;
+  map.anisotropy = 16;
+  map.repeat.set( 1, 1 );
+  groundMaterial.map = map;
+  groundMaterial.needsUpdate = true;
+} );
+
+// water
+var waterGeometry = new THREE.PlaneBufferGeometry( 10000, 10000 );
+var flowMap = textureLoader.load( 'textures/water/Water_1_M_Flow.jpg' );
+water = new THREE.Water( waterGeometry, {
+  scale: 20,
+  textureWidth: 1024,
+  textureHeight: 1024,
+  flowMap: flowMap
+} );
+water.position.y = 1;
+water.rotation.x = Math.PI * - 0.5;
+scene.add( water );
+```
+
+This part is about the music.
+
+```javascript
+//Music
+function swap_music() {
+  var oAudio = document.getElementById('myaudio');
+  if (oAudio.paused) {
+    oAudio.play();
+  }
+  else {
+    oAudio.pause();
+  }
+}
+```
+
+This part is used to make sure the view doesn't cross the water as it moves. Limit the coordinates of the water surface.
+
+```javascript
+function update(delta) {
+	controls.update(delta);
+	if(controls.object.position.y < water.position.y + 20){
+		controls.object.position.y = 20;
+	}
+}
 ```
