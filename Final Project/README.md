@@ -41,3 +41,41 @@ var cubeTexture = cubeTextureLoader.load( [
 ] );
 scene.background = cubeTexture;
 ```
+
+
+
+```javascript
+for (var i=0; i<10; i++){
+  // Model/material loading!
+  var mtlLoader = new THREE.MTLLoader();
+  mtlLoader.load("models/4.mtl", function(materials){
+
+    materials.preload();
+
+    var objLoader = new THREE.OBJLoader();
+    objLoader.setMaterials(materials);
+
+    objLoader.load("models/4.obj", function(mesh){
+      mesh.traverse(function(node){
+        if( node instanceof THREE.Mesh ){
+          node.castShadow = true;
+          node.receiveShadow = true;
+        }
+      });
+      var sizeRand = Math.random() * 5;
+      mesh.scale.set(sizeRand,sizeRand,sizeRand);
+      mesh.position.set(Math.random()*2000-400,  2, Math.random()*2000-400);
+      mesh.rotation.y = Math.PI/Math.random()*1;
+      mesh.rotation.x += 360*Math.random();
+      var randomValueX = (Math.random()*0.1) - 0.05;
+      var randomValueY = (Math.random()*0.1) - 0.05;
+      randomRotationX.push(randomValueX);
+      randomRotationY.push(randomValueY);
+
+      scene.add(mesh);
+      cubes.push(mesh); //Add to the array so that we can access for raycasting
+    });
+  });
+}
+
+```
