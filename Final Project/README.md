@@ -28,7 +28,7 @@ controls.lookVertical = true;
 ```
 
 This is about the sky box, which is textured from six sides.
-![Image text](https://github.com/jack635/DAT505-GitHub/blob/master/pic/Final.gif)
+![Image text](https://github.com/jack635/DAT505-GitHub/blob/master/pic/Final1.png)
 
 ```javascript
 // add a skybox background
