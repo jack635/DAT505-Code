@@ -42,9 +42,13 @@ var cubeTexture = cubeTextureLoader.load( [
 scene.background = cubeTexture;
 ```
 
-
+This section is about model and material import, using MTLLoader and OBJLoader. RandomRotationX and randomRotationY are defined first. Then the model is set with random size, position and Angle. Make the model less monotonous in the scene. Finally, add the model to the scene.
+![Image text](https://github.com/jack635/DAT505-GitHub/blob/master/pic/Final2.png)
 
 ```javascript
+var cubes = [];
+var randomRotationX = [];
+var randomRotationY = [];
 for (var i=0; i<10; i++){
   // Model/material loading!
   var mtlLoader = new THREE.MTLLoader();
