@@ -42,7 +42,7 @@ var cubeTexture = cubeTextureLoader.load( [
 scene.background = cubeTexture;
 ```
 
-This section is about model and material import, using MTLLoader and OBJLoader. RandomRotationX and randomRotationY are defined first. Then the model is set with random size, position and Angle. Make the model less monotonous in the scene. Finally, add the model to the scene.
+This section is about model and material import, using MTLLoader and OBJLoader. RandomRotationX and randomRotationY are defined first. Then the model is set with random size, position and Angle. Make the model less monotonous in the scene. Use arrays to control the number of models and limit them to a range so that the location of the model does not look strange. Finally, add the model to the scene.
 ![Image text](https://github.com/jack635/DAT505-GitHub/blob/master/pic/Final2.png)
 
 ```javascript
@@ -83,6 +83,13 @@ for (var i=0; i<10; i++){
 }
 ```
 
+This part is about fog, setting the color and concentration of fog.
+
+```javascript
+//fog
+scene.fog = new THREE.FogExp2(0xffffff,0.0005);
+```
+
 This part is about water, using a textured plane to set off the water and water components. Adjust the values of the two parts to make the water look more real. TextureLoader is used to load the texture. Finally, add the water surface to the scene. Make the pitch big enough to cover the whole scene.
 
 ```javascript
@@ -116,9 +123,13 @@ water.rotation.x = Math.PI * - 0.5;
 scene.add( water );
 ```
 
-This part is about the music.
+This part is about the music, Setting up two music in HTML, both start automatically, and the first paragraph can be controlled, the second can not be controlled.
 
 ```javascript
+<audio id="my" src="music/Without You I Am Dying.mp3" controls="true" autoplay = "autoplay" loop="true">
+<audio id="my" src="music/1.mp3"  autoplay = "autoplay" loop="true">
+ </audio>
+
 //Music
 function swap_music() {
   var oAudio = document.getElementById('myaudio');
@@ -131,7 +142,7 @@ function swap_music() {
 }
 ```
 
-This part is used to make sure the view doesn't cross the water as it moves. Limit the coordinates of the water surface.
+This part is used to make sure the view doesn't cross the water as it moves. Limit the coordinates of the water surface. Make sure it feels real.
 
 ```javascript
 function update(delta) {
