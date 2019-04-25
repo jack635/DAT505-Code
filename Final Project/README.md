@@ -1,6 +1,8 @@
 # Final Project
 In my final assignment, I tried to create an immersive space, but due to limited technology, it may not achieve the desired effect. After overcoming many difficulties, I finally finished my work.For my final project, I used a first-person view, where you can mouse through the entire scene. I used the water and sky box to show the big atmosphere, and added a little fog effect. Then the ship model is imported and generated at random positions and angles. Two pieces of background music were added as an aid. I was inspired by the scenes in the movie, and I wanted to build a real interactive scene that could view the whole scene through control. But I still have some questions about the motion of the model, I can only make the model rotate, I can't make it move. If these problems are solved, I believe my final assignment will be better. Here is the result of my final assignment.
 
+My Github link：https://github.com/jack635/DAT505-GitHub
+
 ![Image text](https://github.com/jack635/DAT505-GitHub/blob/master/pic/Final.gif)
 
 This part is about first person control, I can control the speed of the movement and the change of perspective. And import the first person components in the HTML.
