@@ -1,13 +1,11 @@
 if ( WEBGL.isWebGLAvailable() === false ) {
-document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+	document.body.appendChild( WEBGL.getWebGLErrorMessage() );
 }
 var scene, camera, renderer, water;
 var cubes = [];
 var randomRotationX = [];
 var randomRotationY = [];
 var INV_MAX_FPS = 1 / 100, frameDelta = 0;
-
-
 var clock = new THREE.Clock();
 
 requestAnimationFrame(function animate() {
@@ -29,7 +27,7 @@ function init() {
 	// scene
 	scene = new THREE.Scene();
 
-  //fog
+	//fog
 	scene.fog = new THREE.FogExp2(0xffffff,0.0005);
 
 
@@ -55,11 +53,9 @@ function init() {
 	scene.background = cubeTexture;
 
 	var light = new THREE.DirectionalLight( 0xaabbff, 2 );
-					light.position.x = 300;
-					light.position.y = 250;
-					//light.position.z = - 500;
-					scene.add( light );
-
+	light.position.x = 300;
+	light.position.y = 250;
+	scene.add( light );
 
 	var object;
 
@@ -160,15 +156,7 @@ function onResize() {
 	camera.updateProjectionMatrix();
 	renderer.setSize( window.innerWidth, window.innerHeight );
 }
-function animate() {
-	requestAnimationFrame( animate );
-	/*	cubes.forEach(function(c, i) {
-	c.rotation.x += randomRotationX[i];
-	c.rotation.y += randomRotationY[i];
-});*/
 
-render();
-}
 function render() {
 	controls.update( clock.getDelta() );
 	renderer.render( scene, camera );
@@ -180,7 +168,6 @@ function update(delta) {
 		controls.object.position.y = 20;
 	}
 }
-
 
 init();
 animate();
